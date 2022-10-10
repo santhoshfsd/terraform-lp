@@ -1,5 +1,5 @@
 resource "aws_key_pair" "mykey" {
-    key_name = "tfketpair"
+    key_name = "tf-ssh-key"
     public_key = "${file("${var.PATH_TO_PUBLIC_KEY}")}"
 }
 
@@ -11,7 +11,7 @@ resource "aws_instance" "example" {
     provisioner "file"  {
         source = "script.sh"
         destination = "/tmp/script.sh"
-    }
+    } 
     provisioner "remote-exec" {
         inline = [
             "chmod +x /tmp/script.sh",
@@ -20,7 +20,9 @@ resource "aws_instance" "example" {
     }
 
     connection {
-        user= "${var.INSTANCE_USERNAME}"
-        private_key=public_key = "${file("${var.PATH_TO_PRIVATE_KEY}")}"
+        type="ssh"
+        user="${var.INSTANCE_USERNAME}"
+        private_key= "${file("${var.PATH_TO_PRIVATE_KEY}")}"
+        host     = "${self.public_ip}"
     }
 }

@@ -19,4 +19,6 @@
 - aws_instance
 ```
 
-## public
+## public amis 
+- amazon linux - ami-05fa00d4c63e32376
+- ubuntu - ami-08c40ec9ead489470

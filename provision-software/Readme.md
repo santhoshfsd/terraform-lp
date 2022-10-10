@@ -17,6 +17,15 @@
 - ec2-user is the default name
 - use ssh keypairs
 
+### connections
+    - user 
+    - password
+    - aws ssh keypairs
+        - public key - will be uploaded to the aws 
+        - private key - used to login 
+    - host 
+        self object
+        https://www.terraform.io/language/resources/provisioners/connection#the-self-object
 # remote exec 
 ```
 provisioner 'file'
@@ -24,3 +33,8 @@ provisioner 'file'
 provisioner 'remote-exex '
 
 ```
+
+## generate ssh key pair
+- ssh-keygen -f tf-ssh-key
+
+## AWSCompromisedKeyQuarantineV2

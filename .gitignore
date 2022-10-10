@@ -1,4 +1,9 @@
 .terraform
 .terraform.lock.hcl
 terraform.tfstate
+terraform.tfstate.backup
 .terraform.tfstate.lock.info
+data.tfvars
+terraform.tfvars
+tf-ssh-key
+tf-ssh-key.pub
